@@ -30,9 +30,11 @@ async function getHewanByIdController(req, res) {
 
 async function createHewanController(req, res) {
   const { NamaHewan, Spesies, Gender, Umur, StatusKesehatan, Pemilik } = req.body;
+
   if (!NamaHewan || !Spesies || !Gender || !Umur || !StatusKesehatan || !Pemilik) {
     return res.status(400).json({ message: "Semua field wajib diisi" });
   }
+
   try {
     const newHewan = await createHewan(req.body);
     res.status(201).json(newHewan);
@@ -43,9 +45,11 @@ async function createHewanController(req, res) {
 
 async function updateHewanController(req, res) {
   const { NamaHewan, Spesies, Gender, Umur, StatusKesehatan, Pemilik } = req.body;
+
   if (!NamaHewan || !Spesies || !Gender || !Umur || !StatusKesehatan || !Pemilik) {
     return res.status(400).json({ message: "Semua field wajib diisi" });
   }
+
   try {
     const updated = await updateHewan(req.params.id, req.body);
     res.status(200).json(updated);
@@ -61,7 +65,10 @@ async function updateHewanController(req, res) {
 async function deleteHewanController(req, res) {
   try {
     const deleted = await deleteHewan(req.params.id);
-    res.status(200).json({ message: "Hewan berhasil dihapus", data: deleted });
+    res.status(200).json({
+      message: "Hewan berhasil dihapus",
+      data: deleted
+    });
   } catch (error) {
     if (error.message === "Hewan tidak ditemukan") {
       res.status(404).json({ message: error.message });

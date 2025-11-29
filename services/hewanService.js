@@ -1,12 +1,12 @@
-import dataKlinik from "../data.js";
+import dataHewan from "../data.js";
 
 async function getAllHewan() {
-  return dataKlinik;
+  return dataHewan;
 }
 
 async function getHewanById(id) {
   const hewanId = parseInt(id);
-  const hewan = dataKlinik.find((h) => h.IDhewan === hewanId);
+  const hewan = dataHewan.find((h) => h.IDhewan === hewanId);
   if (!hewan) {
     throw new Error("Hewan tidak ditemukan");
   }
@@ -15,7 +15,7 @@ async function getHewanById(id) {
 
 async function createHewan(hewanData) {
   const newHewan = {
-    IDhewan: dataKlinik.length + 1,
+    IDhewan: dataHewan.length + 1,
     NamaHewan: hewanData.NamaHewan,
     Spesies: hewanData.Spesies,
     Gender: hewanData.Gender,
@@ -23,27 +23,27 @@ async function createHewan(hewanData) {
     StatusKesehatan: hewanData.StatusKesehatan,
     Pemilik: hewanData.Pemilik
   };
-  dataKlinik.push(newHewan);
+  dataHewan.push(newHewan);
   return newHewan;
 }
 
 async function updateHewan(id, hewanData) {
   const hewanId = parseInt(id);
-  const index = dataKlinik.findIndex((h) => h.IDhewan === hewanId);
+  const index = dataHewan.findIndex((h) => h.IDhewan === hewanId);
   if (index === -1) {
     throw new Error("Hewan tidak ditemukan");
   }
-  dataKlinik[index] = { ...dataKlinik[index], ...hewanData };
-  return dataKlinik[index];
+  dataHewan[index] = { ...dataHewan[index], ...hewanData };
+  return dataHewan[index];
 }
 
 async function deleteHewan(id) {
   const hewanId = parseInt(id);
-  const index = dataKlinik.findIndex((h) => h.IDhewan === hewanId);
+  const index = dataHewan.findIndex((h) => h.IDhewan === hewanId);
   if (index === -1) {
     throw new Error("Hewan tidak ditemukan");
   }
-  const deleted = dataKlinik.splice(index, 1);
+  const deleted = dataHewan.splice(index, 1);
   return deleted[0];
 }
 

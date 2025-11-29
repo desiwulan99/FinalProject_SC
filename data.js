@@ -1,4 +1,4 @@
-let dataKlinik = [
+let dataHewan = [
     {IDhewan: 1, NamaHewan: "Baba", Spesies: "Kucing", Gender: "Jantan", Umur: 4, StatusKesehatan: "Sehat", Pemilik: "Fayyaza Parsa"},
     {IDhewan: 2, NamaHewan: "Coco", Spesies: "Kelinci", Gender: "Betina", Umur: 3, StatusKesehatan: "Tidak Sehat", Pemilik: "Adhelya Komara"},
     {IDhewan: 3, NamaHewan: "Rex", Spesies: "Hamster", Gender: "Jantan", Umur: 5, StatusKesehatan: "Sehat", Pemilik: "Naura Aleeka"},
@@ -12,4 +12,4 @@ let dataKlinik = [
 
 ];
 
-export default dataKlinik;
+export default dataHewan;

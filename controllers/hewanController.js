@@ -78,10 +78,58 @@ async function deleteHewanController(req, res) {
   }
 }
 
-export {
-  getAllHewanController,
-  getHewanByIdController,
-  createHewanController,
-  updateHewanController,
-  deleteHewanController
-};
+////////////////////////////////////////////////////////////////
+// 🔥 TAMBAHAN 1: TOTAL DATA HEWAN
+////////////////////////////////////////////////////////////////
+async function getTotalHewanController(req, res) {
+  try {
+    const data = await getAllHewan();
+    res.status(200).json({
+      total: data.length
+    });
+  } catch (error) {
+    res.status(500).json({ message: error.message });
+  }
+}
+
+////////////////////////////////////////////////////////////////
+// 🔥 TAMBAHAN 2: SARAN PERAWATAN HEWAN
+////////////////////////////////////////////////////////////////
+
+function generateSaran(umur, status) {
+  const saran = [];
+
+  // Saran berdasarkan umur
+  if (umur <= 1) saran.push("Berikan vaksin dasar dan pemeriksaan rutin.");
+  else if (umur <= 7) saran.push("Lakukan pengecekan kesehatan setiap 6 bulan.");
+  else saran.push("Hewan usia lanjut perlu pemeriksaan khusus organ.");
+
+  // Saran berdasarkan status kesehatan
+  if (status === "Sakit") saran.push("Butuh perawatan intensif dan obat sesuai resep dokter.");
+  else if (status === "Sehat") saran.push("Pertahankan pola makan dan kebersihan kandang.");
+  else saran.push("Perlu pemeriksaan lanjutan untuk kondisi tidak diketahui.");
+
+  return saran;
+}
+
+async function getSaranPerawatanController(req, res) {
+  try {
+    const data = await getHewanById(req.params.id);
+
+    const saran = generateSaran(data.Umur, data.StatusKesehatan);
+
+    res.status(200).json({
+      IDhewan: data.IDhewan,
+      NamaHewan: data.NamaHewan,
+      SaranPerawatan: saran
+    });
+  } catch (error) {
+    if (error.message === "Hewan tidak ditemukan") {
+      res.status(404).json({ message: error.message });
+    } else {
+      res.status(500).json({ message: error.message });
+    }
+  }
+}
+
+export {getAllHewanController, getHewanByIdController, createHewanController, updateHewanController, deleteHewanController, getTotalHewanController, getSaranPerawatanController};

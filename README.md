@@ -1,7 +1,7 @@
-* Judul Project: Pet Clinic 
+* Judul Project: Animal Care
 
 * Deskripsi Umum
-Proyek ini adalah REST API sederhana yang digunakan untuk mengelola data hewan pada sebuah klinik.  
+Proyek ini adalah REST API sederhana yang digunakan untuk mengelola data hewan dan layanan perawatannya. Sistem ini memungkinkan pencatatan informasi hewan, pemantauan kondisi kesehatan, serta pemberian saran perawatan yang sesuai melalui endpoint yang tersedia.
 
 * Cara menjalankan server
 1. Menginstall node.js (ver 16+)

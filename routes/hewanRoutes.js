@@ -7,6 +7,7 @@ router.get("/hewan", getAllHewanController);
 router.get("/hewan/total", getTotalHewanController);          
 router.get("/hewan/:id", getHewanByIdController);
 router.get("/hewan/:id/saran", getSaranPerawatanController);  
+
 router.post("/hewan", createHewanController);
 router.patch("/hewan/:id", updateHewanController);
 router.delete("/hewan/:id", deleteHewanController);

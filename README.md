@@ -12,10 +12,12 @@ Proyek ini adalah REST API sederhana yang digunakan untuk mengelola data hewan d
 
 * Daftar Endpoint 
 1. getAllHewanController : Menampilkan semua data hewan di klinik
-2. getHewanByIdController : Menampilkan data hewan berdasarkan ID
-3. createHewanController : Menambahkan data hewan di klinik
-4. updateHewanController : Mengubah data hewan di klinik
-5. deleteHewanController : Menghapus data hewan di klinik 
+2. getTotalHewanController : Menampilkan total jumlah hewan di klinik
+3. getHewanByIdController : Menampilkan data hewan berdasarkan ID
+4. getSaranPerawatanController : Menampilkan saran perawatan untuk hewan berdasarkan ID
+5. createHewanController : Menambahkan data hewan di klinik
+6. updateHewanController : Mengubah data hewan di klinik
+7. deleteHewanController : Menghapus data hewan di klinik
 
 * Struktur File 
 /controllers/hewanController.js  

@@ -1,6 +1,7 @@
 * Judul Project: Animal Care
 
 * Deskripsi Umum
+
 Proyek ini adalah REST API sederhana yang digunakan untuk mengelola data hewan dan layanan perawatannya. Sistem ini memungkinkan pencatatan informasi hewan, pemantauan kondisi kesehatan, serta pemberian saran perawatan yang sesuai melalui endpoint yang tersedia.
 
 * Cara menjalankan server
@@ -20,6 +21,7 @@ Proyek ini adalah REST API sederhana yang digunakan untuk mengelola data hewan d
 7. deleteHewanController : Menghapus data hewan di klinik
 
 * Struktur File 
+
 /controllers/hewanController.js  
 /routes/hewanRoutes.js  
 /services/hewanService.js  

@@ -47,4 +47,36 @@ async function deleteHewan(id) {
   return deleted[0];
 }
 
-export { getAllHewan, getHewanById, createHewan, updateHewan, deleteHewan };
+async function getTotalHewan() {
+  return { total: dataHewan.length };
+}
+
+async function getSaranPerawatan(id) {
+  const hewan = await getHewanById(id);
+  let saran = "";
+
+  if (hewan.Spesies.toLowerCase() === "anjing") {
+    saran = "Mandikan 1–2 kali per bulan dan berikan vaksin lengkap.";
+  } else if (hewan.Spesies.toLowerCase() === "kucing") {
+    saran = "Sikat bulu secara rutin dan berikan makanan tinggi protein.";
+  } else {
+    saran = "Perawatan umum: periksa kesehatan rutin dan jaga kebersihan kandang.";
+  }
+
+  return {
+    IDhewan: hewan.IDhewan,
+    NamaHewan: hewan.NamaHewan,
+    Spesies: hewan.Spesies,
+    SaranPerawatan: saran
+  };
+}
+
+export {
+  getAllHewan,
+  getHewanById,
+  createHewan,
+  updateHewan,
+  deleteHewan,
+  getTotalHewan,
+  getSaranPerawatan
+};

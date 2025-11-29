@@ -23,10 +23,9 @@ async function getHewanByIdController(req, res) {
     res.status(200).json(data);
   } catch (error) {
     if (error.message === "Hewan tidak ditemukan") {
-      res.status(404).json({ message: error.message });
-    } else {
-      res.status(500).json({ message: error.message });
+      return res.status(404).json({ message: error.message });
     }
+    res.status(500).json({ message: error.message });
   }
 }
 
@@ -51,10 +50,9 @@ async function updateHewanController(req, res) {
     res.status(200).json(updated);
   } catch (error) {
     if (error.message === "Hewan tidak ditemukan") {
-      res.status(404).json({ message: error.message });
-    } else {
-      res.status(500).json({ message: error.message });
+      return res.status(404).json({ message: error.message });
     }
+    res.status(500).json({ message: error.message });
   }
 }
 
@@ -67,10 +65,9 @@ async function deleteHewanController(req, res) {
     });
   } catch (error) {
     if (error.message === "Hewan tidak ditemukan") {
-      res.status(404).json({ message: error.message });
-    } else {
-      res.status(500).json({ message: error.message });
+      return res.status(404).json({ message: error.message });
     }
+    res.status(500).json({ message: error.message });
   }
 }
 
@@ -89,10 +86,9 @@ async function getSaranPerawatanController(req, res) {
     res.status(200).json(data);
   } catch (error) {
     if (error.message === "Hewan tidak ditemukan") {
-      res.status(404).json({ message: error.message });
-    } else {
-      res.status(500).json({ message: error.message });
+      return res.status(404).json({ message: error.message });
     }
+    res.status(500).json({ message: error.message });
   }
 }
 

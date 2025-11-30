@@ -54,7 +54,6 @@ async function getTotalHewan() {
 async function getSaranPerawatan(id) {
   const hewan = await getHewanById(id);
   let saran = "";
-
   if (hewan.Spesies.toLowerCase() === "anjing") {
     saran = "Mandikan 1–2 kali per bulan dan berikan vaksin lengkap.";
   } else if (hewan.Spesies.toLowerCase() === "kucing") {
@@ -62,13 +61,22 @@ async function getSaranPerawatan(id) {
   } else {
     saran = "Perawatan umum: periksa kesehatan rutin dan jaga kebersihan kandang.";
   }
-
   return {
     IDhewan: hewan.IDhewan,
     NamaHewan: hewan.NamaHewan,
     Spesies: hewan.Spesies,
     SaranPerawatan: saran
   };
+}
+
+async function filterHewanByGender(gender) {
+  const hasil = dataHewan.filter(
+    (h) => h.Gender.toLowerCase() === gender.toLowerCase()
+  );
+  if (hasil.length === 0) {
+    throw new Error("Tidak ada hewan dengan gender tersebut");
+  }
+  return hasil;
 }
 
 export {
@@ -78,5 +86,6 @@ export {
   updateHewan,
   deleteHewan,
   getTotalHewan,
-  getSaranPerawatan
+  getSaranPerawatan,
+  filterHewanByGender
 };

@@ -5,7 +5,8 @@ import {
   updateHewan,
   deleteHewan,
   getTotalHewan,
-  getSaranPerawatan
+  getSaranPerawatan,
+  filterHewanByGender
 } from "../services/hewanService.js";
 
 async function getAllHewanController(req, res) {
@@ -92,6 +93,19 @@ async function getSaranPerawatanController(req, res) {
   }
 }
 
+async function filterHewanByGenderController(req, res) {
+  try {
+    const { gender } = req.query;
+    if (!gender) {
+      return res.status(400).json({ message: "Parameter gender wajib diisi" });
+    }
+    const data = await filterHewanByGender(gender);
+    res.status(200).json(data);
+  } catch (error) {
+    res.status(404).json({ message: error.message });
+  }
+}
+
 export {
   getAllHewanController,
   getHewanByIdController,
@@ -99,5 +113,6 @@ export {
   updateHewanController,
   deleteHewanController,
   getTotalHewanController,
-  getSaranPerawatanController
+  getSaranPerawatanController,
+  filterHewanByGenderController
 };

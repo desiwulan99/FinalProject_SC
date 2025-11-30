@@ -1,12 +1,13 @@
 import express from "express";
-import {getAllHewanController, createHewanController, getHewanByIdController, updateHewanController, deleteHewanController, getTotalHewanController, getSaranPerawatanController} from "../controllers/hewanController.js";
+import {getAllHewanController, createHewanController, getHewanByIdController, updateHewanController, deleteHewanController, getTotalHewanController, getSaranPerawatanController, filterHewanByGenderController} from "../controllers/hewanController.js";
 
 const router = express.Router();
 
 router.get("/hewan", getAllHewanController);
-router.get("/hewan/total", getTotalHewanController);          
+router.get("/hewan/filter/gender", filterHewanByGenderController);
+router.get("/hewan/total", getTotalHewanController);
 router.get("/hewan/:id", getHewanByIdController);
-router.get("/hewan/:id/saran", getSaranPerawatanController);  
+router.get("/hewan/:id/saran", getSaranPerawatanController);
 
 router.post("/hewan", createHewanController);
 router.patch("/hewan/:id", updateHewanController);

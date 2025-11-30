@@ -12,13 +12,13 @@ Proyek ini adalah REST API sederhana yang digunakan untuk mengelola data hewan d
 --> Server akan berjalan (default contoh): http://localhost:3000
 
 * Daftar Endpoint 
-1. getAllHewanController : Menampilkan semua data hewan di klinik
-2. getTotalHewanController : Menampilkan total jumlah hewan di klinik
+1. getAllHewanController : Menampilkan semua data hewan
+2. getTotalHewanController : Menampilkan total jumlah hewan 
 3. getHewanByIdController : Menampilkan data hewan berdasarkan ID
 4. getSaranPerawatanController : Menampilkan saran perawatan untuk hewan berdasarkan ID
-5. createHewanController : Menambahkan data hewan di klinik
-6. updateHewanController : Mengubah data hewan di klinik
-7. deleteHewanController : Menghapus data hewan di klinik
+5. createHewanController : Menambahkan data hewan 
+6. updateHewanController : Mengubah data hewan 
+7. deleteHewanController : Menghapus data hewan 
 
 * Struktur File 
 
